@@ -91,7 +91,9 @@ class ProjectController extends Controller
      */
     public function edit(Request $request, Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -115,6 +117,7 @@ class ProjectController extends Controller
                 'client_name' => 'nullable|max:95',
                 'summary' => 'nullable|min:5',
                 'cover_image' => 'nullable|image|max:512',
+                'type_id' => 'nullable|exists:types,id'
             ]
         );
 
