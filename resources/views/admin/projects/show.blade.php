@@ -22,6 +22,7 @@
         <div><span class="fw-bold">ID: </span>{{ $project->id }}</div>
         <div><span class="fw-bold">Slug: </span>{{ $project->slug }}</div>
         <div><span class="fw-bold">Client: </span>{{ $project->client_name }}</div>
+        <div><span class="fw-bold">Type: </span>{{ $project->type ? $project->type->name : 'No type selected.' }}</div>
         <div><span class="fw-bold">Created: </span>{{ $project->created_at }}</div>
         <div><span class="fw-bold">Updated: </span>{{ $project->updated_at }}</div>
         @if ($project->cover_image)
