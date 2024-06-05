@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -30,7 +31,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -47,6 +50,7 @@ class ProjectController extends Controller
                 'client_name' => 'nullable|max:95',
                 'summary' => 'nullable|min:5',
                 'cover_image' => 'nullable|image|max:512',
+                'type_id' => 'nullable|exists:types,id'
             ]
         );
 
