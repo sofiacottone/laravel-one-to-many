@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Database\Seeders\ProjectsTableSeeder;
+use Database\Seeders\TypesTableSeeder;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ProjectsTableSeeder::class,
+            TypesTableSeeder::class
         ]);
     }
 }
